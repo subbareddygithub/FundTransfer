@@ -19,7 +19,7 @@ const Failure = () => {
                     </p>
                         <hr />
                         <p className="mb-0">
-                            For any queries, contact us at www.ABCBank.com
+                            For any queries, contact us at www.BOIBank.com
                     </p>
                     </Alert>
                 </div>

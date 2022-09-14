@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Transfer.css";
+import "../styles/style.css"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
@@ -17,17 +18,6 @@ const Transfer = () => {
   const [beneficiaryOptions, setBeneficiaryOptions] = useState([]);
   const [beneficiaryItem, setBeneficiaryItem] = useState("");
 
-  const handleInputChange = (input) => {
-    console.log(input);
-    setOptions(
-      options.filter((opt) => {
-        console.log(opt);
-        return (
-          opt && opt.value && opt.value.contains && opt.value.contains(input)
-        );
-      })
-    );
-  };
 
   useEffect(() => {
     async function getSender() {
@@ -91,19 +81,20 @@ const Transfer = () => {
       <NavBarLoggedIn />
       <div>
         <div className="bgh">
-          <h1 className="transfer-heading">The Hassle Free Bank Transfer</h1>
+          <h1 className="transfer-heading">The Hassle Free Fund Transfer</h1>
           <div className="leftc">
-            <h3 className="transfer-title">Transfer Form</h3>
+            <h3 className="transfer-title">Beneficiary Transfer Form</h3>
             <>
+            <div className="App">
               <Select
                 className="mb-3"
-                placeholder="Select From Account"
+                placeholder=  "Select From Account" 
                 options={options}
                 onChange={handleChange}
-                aria-label="Recipient's Acc No"
-                aria-describedby="basic-addon2"
+               
               />
-
+              </div>
+            <div className="App">
               <Select
                 className="mb-3"
                 placeholder="Select Beneficiary Account"
@@ -112,6 +103,7 @@ const Transfer = () => {
                 aria-label="Recipient's Acc No"
                 aria-describedby="basic-addon2"
               />
+              </div>
               <InputGroup className="mb-3">
                 <FormControl
                   placeholder="Recipient's Email"
@@ -124,7 +116,7 @@ const Transfer = () => {
               </InputGroup>
 
               <InputGroup className="mb-3">
-                <InputGroup.Text>$ Amount</InputGroup.Text>
+                <InputGroup.Text>₹ Amount</InputGroup.Text>
                 <FormControl
                   aria-label="Amount (to the nearest Rupee)"
                   value={amount}
@@ -156,13 +148,11 @@ const Transfer = () => {
             </>
           </div>
           <div className="rightc">
-            <img
-              src="https://cdn.pixabay.com/photo/2013/07/12/12/14/euro-145386_1280.png"
-              alt=""
-            />
+     
           </div>
         </div>
       </div>
+      
       <Footer />
     </div>
   );
